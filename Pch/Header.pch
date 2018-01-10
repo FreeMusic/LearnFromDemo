@@ -1,0 +1,59 @@
+//
+//  Header.pch
+//  CityJinFu
+//
+//  Created by xxlc on 16/8/8.
+//  Copyright © 2016年 yunfu. All rights reserved.
+//
+
+#ifndef Header_h
+#define Header_h
+
+#import "Factory.h"
+#import "ColorSize.h"
+#import "CityJinFuAPI.h"
+#import "API.h"
+#import "UIView+ViewController.h"
+#import "UIViewController+rootVC.h"
+/*
+ 1 正式
+ 0 测试服务器地址 
+ */
+#if 1
+
+//#define Localhost @"http://121.40.168.55:9083"
+//#define Localhost @"http://121.40.222.15:9083"
+#define Localhost @"https://mobile.hcjinfu.com"
+//#define Localhost @"https://www.hcjinfu.com"
+//#define Localhost @"http://beta.hcjinfu.com:9083"     
+
+#else
+//#define Localhost @"http://192.168.1.38:8082"
+////#define Localhost @"http://returntest.hcjinfu.com:9083"
+//#define Localhost @"http://192.168.1.67:8093"//罗
+//#define Localhost @"http://192.168.1.79:8084"//张杰
+//#define Localhost @"http://192.168.1.176:8078"//罗
+#define Localhost @"http://121.41.22.52:9083"  //(测试服)
+
+#endif
+/**
+ *  如果不需要log,把1改成0
+ */
+#define  myTest  1
+#if myTest
+
+#define NSLog(FORMAT, ...) fprintf(stderr,"[%s:%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+
+#else
+
+#define NSLog(FORMAT, ...) nil
+#endif
+
+#define kRemoveCellSeparator \
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{\
+cell.separatorInset = UIEdgeInsetsZero;\
+cell.layoutMargins = UIEdgeInsetsZero;\
+cell.preservesSuperviewLayoutMargins = NO;\
+}
+
+#endif /* Header_h */
