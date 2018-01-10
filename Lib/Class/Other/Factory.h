@@ -206,4 +206,6 @@
  *创建Button  带有点击事件 带subView
  */
 + (UIButton *)ButtonWithTitle:(NSString *)title andTitleColor:(UIColor *)textColor andButtonbackGroundColor:(UIColor *)buttonBackGroundColor andCornerRadius:(CGFloat)radius addTarget:(UIViewController *)viewController action:(NSString *)action addSubView:(UIView *)subView;
+
++ (UIImage *)navgationImage;
 @end

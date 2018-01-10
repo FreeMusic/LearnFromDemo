@@ -51,7 +51,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = Colorful(220, 220, 219);
-    [TitleLabelStyle addtitleViewToVC:self withTitle:@"锁投有礼"];
     //左边按钮
     UIButton *leftButton = [Factory addLeftbottonToVC:self];//左边的按钮
     [leftButton addTarget:self action:@selector(onClickLeftItem) forControlEvents:UIControlEventTouchUpInside];
@@ -159,6 +158,10 @@
     [self.navigationController.navigationBar setBackgroundImage:colorImage forBarMetrics:UIBarMetricsDefault];
     
     [self.navigationController.navigationBar setShadowImage:[Factory imageWithColor:[UIColor colorWithWhite:0.5 alpha:1] size:CGSizeMake(self.view.frame.size.width, 0.5)]];
+    
+    [TitleLabelStyle addtitleViewToVC:self withTitle:@"锁投有礼"];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[Factory navgationImage] forBarMetrics:UIBarMetricsDefault];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];

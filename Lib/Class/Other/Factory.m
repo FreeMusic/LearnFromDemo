@@ -1158,4 +1158,30 @@
     
     return btn;
 }
+//给view加渐变色
++ (void)colorLayer :(UIView *)view {
+    CAGradientLayer *gradientLayer =  [CAGradientLayer layer];
+    gradientLayer.frame = view.bounds;
+    [gradientLayer setColors:@[(__bridge id)[UIColor redColor].CGColor, (__bridge id)[UIColor yellowColor].CGColor, (__bridge id)[UIColor blueColor].CGColor]];
+    gradientLayer.startPoint = CGPointMake(0, 0);
+    gradientLayer.endPoint = CGPointMake(1, 0);
+    [view.layer addSublayer:gradientLayer];
+}
+//view转化为图片
++(UIImage *)convertViewToImage:(UIView*)view{
+    CGSize s = view.bounds.size;
+    // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了
+    UIGraphicsBeginImageContextWithOptions(s, NO, [UIScreen mainScreen].scale);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+//画一个渐变色的图片
++(UIImage *)navgationImage{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, NavigationBarHeight)];
+    [self colorLayer :view];
+    UIImage *image = [self convertViewToImage:view];
+    return image;
+}
 @end
