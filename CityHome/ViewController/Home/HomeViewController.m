@@ -770,7 +770,7 @@
                 [self.navigationController pushViewController:tempVC animated:YES];
                 
                 tempVC.tag = 1000;
-
+                
                 tempVC.strUrl = self.touchURL;
                 tempVC.urlName = self.touchName;
             }
@@ -800,3 +800,4 @@
 
 
 @end
+
